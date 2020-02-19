@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="Scripts\Validation.js"></script>    
+    <link rel="stylesheet" type="text/css" href="Styles\Style.css"/>    
+</head>
+<body>    
+    <form id="form1" class="border" style="line-height: 30px">
+        <div class="header">
+            <h1>&nbsp &nbsp FLOWER SHOP ONLINE</h1>
+            <hr class="hr" />
+        </div>
+        <div class="part">
+            <div class="navigation">
+                <div> <img src="Images\img.png" class="image"/></div>
+            </div>
+            <div class="section">
+                <h1 class="header">Secure Payment Page</h1>
+                <label><b>Select Language</b></label>
+                <select class="alignment alignLang" id="language" title="Choose Language" required="required">                    
+                    <option>English</option>
+                    <option>Hindi</option>
+                    <option>English(United Kingdom)</option>
+                </select>
+                <br />
+                <label>Payment method &nbsp &nbsp<b class="alignment">Visa</b></label>
+                <br />
+                <label>Description <b class="alignment">Item ordered</b></label><br />
+                <label>Amount <b class="alignment">&euro;100.00</b></label><br />
+                <img class="visa" src="Images\Visa.jpg" align="right" />
+                <div class="content">
+                    <h2 class="hr" style="color: white">Card details</h2>
+                    <label>You must fill in fields marked with *</label>
+                    <br />
+                    <label>* Card number</label>
+                    
+                    <input class="alignment alignNum" type="text" id="txtCardNum" name="Card number" required="required" onchange="ValidateCardNumber()" maxlength="16" /><span id= "erNum" class="error" >Card number is Invalid!</span>
+                    <br />
+                    <label>* <u>Security code</u></label>
+                    <input class="alignment alignCode" type="text" id="txtCode" name="Security code" required="required" onchange="ValidateSecurityCode()" maxlength="3" /><span id= "erCode" class="error" >Security code is Invalid!</span><br />
+
+                    <label>* Expiry date</label>
+                    <select id="ddlMonth" class="alignMonth" required="required" onchange="ValidateExpiryMonth()">
+                        <option value="0">   </option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">Mar</option>
+                        <option value="4">Apr</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Sep</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select><span id= "erMonth" class="error" >Month is Invalid!</span>
+
+                    <select ID="ddlYear" class="alignYear" required="required" onchange="ValidateExpiryYear()">
+                        <option value="0">   </option>
+                        <option value="1">2020</option>
+                        <option value="2">2021</option>
+                        <option value="3">2022</option>
+                        <option value="4">2023</option>
+                        <option value="5">2024</option>
+                        <option value="6">2025</option>
+                        <option value="7">2026</option>
+                        <option value="8">2027</option>
+                        <option value="9">2028</option>
+                        <option value="10">2029</option>
+                        <option value="11">2030</option>
+                        <option value="12">2031</option>
+                        <option value="13">2032</option>
+                        <option value="14">2033</option>
+                    </select><span id= "erYear" class="error" >Year is Invalid!</span><br />
+                    <label>* Cardholder's name</label>
+                    <input class="alignment alignName" type="text" id="txtCardName" name="Cardholder's name" required="required" 
+                    onchange="ValidateName()" maxlength="20" /><span id= "erName" class="error" >Name is Invalid!</span><br />
+                    <h2 class="hr" style="color: white">Cardholder details</h2>
+                    <label>You must fill in fields marked with *</label>
+                    <br />
+                    <label>* Address 1</label>
+                    <input class="alignment alignAdd" type="text" id="txtAdd1" name="Address 1" required="required" onchange="ValidateAddress()" maxlength="20" /><span id= "erAdd1" class="error" >Address is Invalid!</span><br />
+                    <label>&nbsp;&nbsp;Address 2</label>
+                    <input class="alignment alignAdd" type="text" id="txtAdd2" name="Address 2" maxlength="20"/><br />
+                    <label>&nbsp;&nbsp;Address 3</label>
+                    <input class="alignment alignAdd" type="text" id="txtAdd3" name="Address 3" maxlength="20" /><br />
+                    <label>* Town/City</label>
+                    <input class="alignment alignAdd" type="text" id="txtTown" name="Town/City" required="required" 
+                    onchange="ValidateCity()" maxlength="15"/><span id= "erCity" class="error" >City/Town is Invalid!</span><br />
+                    <label>&nbsp;&nbsp;Region</label>
+                    <input class="alignment alignAdd" type="text" id="txtReg" name="Region" /><br />
+                    <label>* Postcode/Zipcode</label>
+                    <input class="alignment alignXtra" type="text" id="txtPost" name="Postcode/Zipcode" required="required" onchange="ValidateZipCode()" maxlength="5" /><span id= "erPost" class="error" >Postalcode is Invalid!</span><br />
+                    <label>* Country</label>
+                    <select class="alignment alignCountry" id="txtCountry" title="Choose Country" required="required">          
+                        <option>India</option>
+                        <option>US</option>
+                        <option>United Kingdom</option>
+                    </select><br />
+                    <label>&nbsp;&nbsp;Telephone</label>
+                    <input class="alignment alignXtra" type="text" id="txtPhone" name="Telephone" onchange="ValidatePhoneNo()" maxlength="10" /> 
+                    <span id= "erPhone" class="error" >Phone number is Invalid!</span><br />
+                    <label>&nbsp;&nbsp;Fax</label>
+                    <input class="alignment alignXtra" type="text" id="txtFax" name="Fax" onchange="ValidateFax()" maxlength="9"/>
+                    <span id= "erFax" class="error" >Fax is Invalid!</span><br />
+                    <label>* Email address</label>
+                    <input class="alignment alignAdd" type="text" id="txtMail" name="Email address" required="required" onchange="ValidateMail()" maxlength="20" /><span id= "erMail" class="error" >Mail is Invalid!</span><br />
+                </div>
+                <div style="color: #034072">                    
+                    <input type ="image" src="Images\refresh_image.png" alt="submit" class="start" formnovalidate="formnovalidate"/>
+                    <b>START AGAIN 
+                         <input class="button" id="btnPayment" type="button" value="MAKE PAYMENT" alt="submit" onclick="ValidateRequiredFields()" /></b>                    
+                    <input type ="image" src="Images\gg.png" alt="submit" class="Payment"  formnovalidate="formnovalidate"/>                    
+                    
+                </div>
+                <div style="color: #034072">
+                    <input type ="image" src="Images\cancel_image.png" alt="submit" class="cancel" 
+                    onclick="Cancel()" formnovalidate="formnovalidate" />
+                    
+                    <b>CANCEL</b>
+                </div>
+                <div class="line">
+                    <hr />                   
+                </div>
+                <h3 class="h3">Refunds and Returns</h3><p class="h3" style="margin-top:0%">For more information visit our <a href="https://www.websitepolicies.com/blog/what-is-refund-policy">Refunds and Returns Policy.</a></p>
+                <div><img src="Images\world.gif" style="float: left"/><p class="help"style="align: right;">For help with your payment visit the <a href="http://help.worldpay.com/home">WorldPay Help</a></p></div>
+
+            </div>
+
+
+            <div>
+                <img class="question" src="Images\question.png" align="left" />
+            </div>
+            <div>
+                <img class="question2" src="Images\question.png" align="left" />
+            </div>
+
+        </div>
+        <footer class="footer">
+            <h1>Thank you for shopping at Flowershop. Have a nice day</h1>
+        </footer>  
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>      
+    </form>
+</body>
+</html>
